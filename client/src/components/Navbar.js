@@ -12,7 +12,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <h2>Medical VQA</h2>
+          <h2>Techno Titans</h2>
         </div>
         
         <div className="menu-icon" onClick={toggleMenu}>
@@ -26,13 +26,13 @@ function Navbar() {
             <a href="#home" className="nav-link">Home</a>
           </li>
           <li className="nav-item">
-            <a href="#radiology" className="nav-link">Radiology</a>
-          </li>
-          <li className="nav-item">
-            <a href="#pathology" className="nav-link">Pathology</a>
+            <a href="#services" className="nav-link">Services</a>
           </li>
           <li className="nav-item">
             <a href="#about" className="nav-link">About</a>
+          </li>
+          <li className="nav-item">
+            <a href="#contact" className="nav-link">Contact</a>
           </li>
         </ul>
       </div>
