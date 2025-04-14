@@ -1,7 +1,7 @@
 .footer {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding-top: 40px;
+  padding: 20px 0;
   margin-top: auto;
 }
 
@@ -94,6 +94,16 @@
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
+}
+
+.footer-simple {
+  text-align: center;
+}
+
+.footer-simple p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media screen and (max-width: 768px) {
