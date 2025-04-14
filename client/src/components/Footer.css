@@ -1,6 +1,6 @@
 .footer {
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: f6f5f5;
+  color: black;
   padding: 20px 0;
   margin-top: auto;
 }
@@ -36,7 +36,7 @@
 .footer-section p {
   margin-bottom: 10px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 
 .footer-links {
@@ -49,13 +49,13 @@
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: white;
+  color: #000;
   text-decoration: underline;
 }
 
@@ -71,28 +71,29 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 50%;
-  color: white;
+  color: #333;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   transform: translateY(-3px);
+  color: #000;
 }
 
 .footer-bottom {
   text-align: center;
   padding: 20px 0;
   margin-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer-bottom p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.7);
   margin: 0;
 }
 
@@ -103,7 +104,7 @@
 .footer-simple p {
   margin: 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 768px) {
