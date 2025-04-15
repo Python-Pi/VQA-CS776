@@ -6,11 +6,9 @@ const { spawn } = require('child_process');
 
 const router = express.Router();
 
-// Configure storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadDir = path.join(__dirname, '../../uploads');
-    // Create directory if it doesn't exist
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
@@ -21,7 +19,6 @@ const storage = multer.diskStorage({
   }
 });
 
-// Create upload middleware
 const upload = multer({
   storage: storage,
   limits: { fileSize: 10 * 1024 * 1024 }, // 10MB max size
@@ -34,12 +31,10 @@ const upload = multer({
   }
 });
 
-// Test route
 router.get('/test', (req, res) => {
   res.json({ message: 'Backend is working!' });
 });
 
-// VQA endpoint that handles all four models
 router.post('/vqa', upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
@@ -65,10 +60,8 @@ router.post('/vqa', upload.single('image'), async (req, res) => {
       });
     }
     
-    // Path to the uploaded image
     const imagePath = req.file.path;
     
-    // Determine which Python script to run based on model type
     let scriptPath;
     switch(model) {
       case 'radiology-open':
@@ -90,7 +83,6 @@ router.post('/vqa', upload.single('image'), async (req, res) => {
         });
     }
     
-    // Run the appropriate Python script
     const python = spawn('python3', [
       scriptPath,
       '--image', imagePath,
@@ -100,17 +92,14 @@ router.post('/vqa', upload.single('image'), async (req, res) => {
     let pythonData = '';
     let pythonError = '';
     
-    // Collect data from the Python script's stdout
     python.stdout.on('data', (data) => {
       pythonData += data.toString();
     });
     
-    // Collect any errors
     python.stderr.on('data', (data) => {
       pythonError += data.toString();
     });
     
-    // Handle the completion of the Python process
     python.on('close', (code) => {
       if (code !== 0) {
         console.error(`Python process exited with code ${code}`);
@@ -122,10 +111,8 @@ router.post('/vqa', upload.single('image'), async (req, res) => {
       }
       
       try {
-        // Parse the JSON output from the Python script
         const result = JSON.parse(pythonData);
         
-        // Return the result to the client
         res.json({
           success: true,
           model,
